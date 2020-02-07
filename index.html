@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- jquery -->
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+	<!-- vuejs -->
+	<script src="https://unpkg.com/vue@2.2.6/dist/vue.js"></script>
+	<!-- bootstrap css -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<!-- animate css -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+	<script src="js.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<style type="text/css">
+		#game{
+			background-image: linear-gradient(0deg, #182848, #2980b9)
+		}
+	</style>
+</head>
+<body class="overflow-hidden">
+	<section id="game">
+		<div class="container" id="container">
+			<div class="row" id="question_con">
+				<div id="question" v-text="question"></div>
+			</div>
+			<div class="row row-cols-2 justify-content-around" id="fishbox">
+				<div class="col" v-for="(item, index) in arrayData" :id="'div'+item.id" style="height: 50%;">
+					<div class="tip" :id="'tooltip' + item.id" v-text="item.text"></div>
+					<img class="fish" :id="'fish' + item.id" :src="item.img_src" @click="show($event)">
+					<img v-if="index==answers" class="ans" id="correct" src="image/correct.png">
+					<img v-else-if="index!=answers" class="ans" src="image/quit.png">
+				</div>
+				<div class="col-3" id="score_con">
+					<div id="score" class="align-self-end">答對{{score}}題</div>
+				</div>
+			</div>
+<!-- 			<div class="row" id="score_con">
+				<div id="score">答對{{score}}題</div>
+			</div> -->
+		</div>
+	</section>
+</body>
+</html>
