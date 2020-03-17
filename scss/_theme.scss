@@ -5,7 +5,6 @@ body{
 #container{
 	width: 95%;
 	padding: 2%;
-    cursor:url(image/loupe.ico), default;
     & #question_con{
         width: 90%;
         background-color: white;
@@ -30,11 +29,18 @@ body{
         }
     }
     & #fishbox{
+        cursor: url("../../image/favicon-20200317101400501.ico"), auto;
         & .tip{
+            max-height: 20%;
+            border: double orange 1em;
+            border-image: url('../../image/pngguru-1.png')450 450 stretch;
+            // border-image: url(http://www.wibibi.com/upload/20150113225637.png) 30 30 repeat;
+            // background-image: url('../../image/pinclipart.9.png');
             overflow: auto;
             background-color: white;
+            background-clip: content-box;
             border-radius: 5px;
-            padding: 1%;
+            // padding: 1%;
             visibility: hidden;
             @include media-pc{
                 font-size: 24px;
@@ -43,29 +49,27 @@ body{
                 font-size: 16px;
             }
         }
-        & #tooltip0{
-            border: 3px solid yellow;
-        }
-        & #tooltip1{
-            border: 3px solid pink;
-        }
+        // & #tooltip0{
+        //     border: 3px solid yellow;
+        // }
+        // & #tooltip1{
+        //     // border: 3px solid pink;
+        // }
         & #tooltip2{
-            border: 3px solid orange;
+            max-height: fit-content;
+            border-image: url('../../image/pngguru.png')450 450 stretch;
         }
         & .fish{
             width: 30%;
         }
         & #fish0{
             animation: upAndDown 3s ease-in-out infinite;
-            cursor: url(image/found1.ico), default;
         }
         & #fish1{
             animation: leftAndRight 3s ease-in-out infinite;
-            cursor: url(image/found1.ico), default;
         }
         & #fish2{
             animation: swim 6s ease-in-out infinite;
-            cursor: url(image/found1.ico), default;
         }
         & .ans{
             height: 30%;

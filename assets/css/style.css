@@ -5,7 +5,6 @@ body {
 #container {
   width: 95%;
   padding: 2%;
-  cursor: url(image/loupe.ico), default;
 }
 
 #container #question_con {
@@ -45,11 +44,19 @@ body {
   }
 }
 
+#container #fishbox {
+  cursor: url("../../image/favicon-20200317101400501.ico"), auto;
+}
+
 #container #fishbox .tip {
+  max-height: 20%;
+  border: double orange 1em;
+  -o-border-image: url("../../image/pngguru-1.png") 450 450 stretch;
+     border-image: url("../../image/pngguru-1.png") 450 450 stretch;
   overflow: auto;
   background-color: white;
+  background-clip: content-box;
   border-radius: 5px;
-  padding: 1%;
   visibility: hidden;
 }
 
@@ -65,16 +72,12 @@ body {
   }
 }
 
-#container #fishbox #tooltip0 {
-  border: 3px solid yellow;
-}
-
-#container #fishbox #tooltip1 {
-  border: 3px solid pink;
-}
-
 #container #fishbox #tooltip2 {
-  border: 3px solid orange;
+  max-height: -webkit-fit-content;
+  max-height: -moz-fit-content;
+  max-height: fit-content;
+  -o-border-image: url("../../image/pngguru.png") 450 450 stretch;
+     border-image: url("../../image/pngguru.png") 450 450 stretch;
 }
 
 #container #fishbox .fish {
@@ -84,19 +87,16 @@ body {
 #container #fishbox #fish0 {
   -webkit-animation: upAndDown 3s ease-in-out infinite;
           animation: upAndDown 3s ease-in-out infinite;
-  cursor: url(image/found1.ico), default;
 }
 
 #container #fishbox #fish1 {
   -webkit-animation: leftAndRight 3s ease-in-out infinite;
           animation: leftAndRight 3s ease-in-out infinite;
-  cursor: url(image/found1.ico), default;
 }
 
 #container #fishbox #fish2 {
   -webkit-animation: swim 6s ease-in-out infinite;
           animation: swim 6s ease-in-out infinite;
-  cursor: url(image/found1.ico), default;
 }
 
 #container #fishbox .ans {

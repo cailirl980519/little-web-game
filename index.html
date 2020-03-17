@@ -10,13 +10,16 @@
 	<script src="https://unpkg.com/vue@2.2.6/dist/vue.js"></script>
 	<!-- bootstrap css -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap" rel="stylesheet">
 	<!-- animate css -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 	<script src="assets/javascript/js.js"></script>
 	<link rel="stylesheet" type="text/css" href="assets/css/style.min.css">
 	<style type="text/css">
 		#game{
-			background-image: linear-gradient(0deg, #182848, #2980b9)
+			background-image: url("image/304675-P7U9PC-655-02.png");
+			background-repeat: no-repeat;
+			background-size: cover;
 		}
 	</style>
 </head>
@@ -28,8 +31,9 @@
 			</div>
 			<div class="h-75 row row-cols-2 justify-content-around" id="fishbox">
 				<div class="col h-50" v-for="(item, index) in arrayData" :id="'div'+item.id">
-					<div class="tip h-50" :id="'tooltip' + item.id" v-text="item.text"></div>
+					<div v-if="index==2" class="tip" :id="'tooltip' + item.id" v-text="item.text"></div>
 					<img class="fish" :id="'fish' + item.id" :src="item.img_src" @click="show($event)">
+					<div v-if="index!=2" class="tip" :id="'tooltip' + item.id" v-text="item.text"></div>
 					<img v-if="index==answers" class="ans" id="correct" src="image/correct.png">
 					<img v-else-if="index!=answers" class="ans" src="image/quit.png">
 				</div>

@@ -10,7 +10,7 @@ function getRandomArrayElements(arr, count) {
 }
 
 function resize(){
-	console.log(window.screen.height);
+	// console.log(window.screen.height);
 	$('body').css('height', window.screen.height);
 }
 
@@ -32,7 +32,7 @@ window.onload = function(){
 			score: score,
 			arrayData:[
 				{id: '0', img_src: 'image/jellyfish.png', text: order[count].A0},
-				{id: '1', img_src: 'image/jellyfish_pink.png', text: order[count].A1},						
+				{id: '1', img_src: 'image/jellyfish_pink.png', text: order[count].A1},
 				{id: '2', img_src: 'image/ocean.png', text: order[count].A2, style: 'height:60%;width:auto;'}
 			]
 		},
@@ -54,11 +54,15 @@ window.onload = function(){
 					},5000);
 				}else{
 					console.log(false)
+					$('#fishbox').css('cursor','url("../../image/favicon-20200317101817212.ico"), auto')
 					$('.ans').css('visibility','visible');
 					$('.tip').css('visibility','visible');
+					$('.tip').css('max-height','fit-content');
 					setTimeout(function(){	
 						$('.ans').css('visibility','hidden');
 						$('.tip').css('visibility','hidden');
+						$('.tip').css('max-height','20%');
+						$('#fishbox').css('cursor','url("../../image/favicon-20200317101400501.ico"), auto')
 						next();
 					},5000);
 				}
@@ -66,9 +70,22 @@ window.onload = function(){
 		}
 	});
 	$('.fish').hover(function(){
-		$(this).prev().css('visibility','visible');
+		if(this.id=='fish2'){
+			$(this).prev().css('visibility','visible');
+			$(this).prev().css('max-height','fit-content');
+		}
+		else{
+			$(this).next().css('visibility','visible');
+			$(this).next().css('max-height','fit-content');
+		}
 	},function(){
-		$(this).prev().css('visibility','hidden');
+		if(this.id=='fish2'){
+			$(this).prev().css('visibility','hidden');
+		}
+		else{
+			$(this).next().css('visibility','hidden');
+			$(this).next().css('max-height','20%');
+		}
 	});
 	function next(){
 		count++;
